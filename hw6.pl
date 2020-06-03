@@ -34,6 +34,6 @@ conflict(A,B) :- where(A,Z), where(B,Z), when(A,X), when(B,X), A\=B.
 /* (d) */
 meet(X,Y) :- enroll(X,A), enroll(Y,A), X\=Y.
 meet(X,Y) :- enroll(X,A), enroll(Y,B), when(A,C), when(B,D), where(A,Z), where(B,Z), D is C+1, X\=Y.
-meet(X,Y) :- enroll(X,A), enroll(Y,B), when(A,C), when(B,D), where(A,Z), where(B,Z), C is D+1.
+meet(X,Y) :- enroll(X,A), enroll(Y,B), when(A,C), when(B,D), where(A,Z), where(B,Z), C is D+1, X\=Y.
 /* Exercise 2 */
 
