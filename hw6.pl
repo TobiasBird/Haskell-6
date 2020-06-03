@@ -46,3 +46,10 @@ flat([], []).
 flat([L|M], F) :- flat(L, Z1), flat(M, Z2), append(Z1, Z2, F).
 flat([L|Z1], [L|Z2]) :- L \= [_], L \= [_], flat(Z1,Z2).
 /* (c) */
+subElement(X,Y) :- Y is X-1.
+subList(X,Y) :- maplist(subElement, X, Y).
+
+project([],X,L).
+project([Head|Tail], [ListHead|ListTail], Ans) :- Head=:=1, project(Tail, ListTail, ListHead).
+project(Nums, [ListHead|ListTail], Ans) :- subList(Nums, NewNums), project(NewNums, ListTail, Ans).
+
