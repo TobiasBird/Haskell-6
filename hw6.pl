@@ -37,3 +37,12 @@ meet(X,Y) :- enroll(X,A), enroll(Y,B), when(A,C), when(B,D), where(A,Z), where(B
 meet(X,Y) :- enroll(X,A), enroll(Y,B), when(A,C), when(B,D), where(A,Z), where(B,Z), C is D+1, X\=Y.
 /* Exercise 2 */
 
+/* (a) */
+rdups([],[]).
+rdups([X|Y],Z) :- member(X,Y), rdups(Y,Z).
+rdups([X|Y],[X|Z]) :- (\+(member(X,Y))), rdups(Y,Z).
+/* (b) */
+flat([], []).
+flat([L|M], F) :- flat(L, Z1), flat(M, Z2), append(Z1, Z2, F).
+flat([L|Z1], [L|Z2]) :- L \= [_], L \= [_], flat(Z1,Z2).
+/* (c) */
