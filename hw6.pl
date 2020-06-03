@@ -38,8 +38,10 @@ meet(X,Y) :- enroll(X,A), enroll(Y,B), when(A,C), when(B,D), where(A,Z), where(B
 /* Exercise 2 */
 
 /* (a) */
-rdup([X|Y],[M]) :- (\+ member(X,M)), append(X, [], M), rdup(Y,M). 
-
+rdups([],[]).
+rdups([X|Y],Z) :- member(X,Y), rdups(Y,Z).
+rdups([X|Y],[X|Z]) :- (\+(member(X,Y))), rdups(Y,Z).
 /* (b) */
 
+/* (c) */
 
